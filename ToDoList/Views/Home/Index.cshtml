@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1 style="text-align: center;">Welcome to the To Do List!</h1>
+<h1 style="text-align: center;">You at least made it to the homepage!</h1>
+<h3 style="text-align: center;">Congratulations!</h3>
+
+@* I am link to to the Index method on the ItemsController. *@
+
+<p>@Html.ActionLink("See all items", "Index", "Items")</p>
+<p>@Html.ActionLink("See all categories", "Index", "Categories")</p>
