@@ -11,7 +11,7 @@ namespace ToDoList.Models
 
         public int ItemId { get; set; }
         public string Description { get; set; }
-
-        public ICollection<CategoryItem> Categories { get; set; }
+        public virtual ApplicationUser User { get; set; } //new line
+        public ICollection<CategoryItem> Categories { get;}
     }
 }
