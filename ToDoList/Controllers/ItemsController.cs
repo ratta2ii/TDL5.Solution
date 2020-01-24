@@ -31,25 +31,11 @@ namespace ToDoList.Controllers
             return View(userItems);
         }
 
-        // Latest working Index
-        // public ActionResult Index()
-        // {
-        //     return View(_db.Items.ToList());
-        // }
-
-
-        // public ActionResult Index()
-        // {
-        //   List<Item> model = _db.Items.Include(items => items.Category).ToList();
-        //   return View(model);
-        // }
-
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
             return View();
         }
-
 
         [HttpPost]
         public async Task<ActionResult> Create(Item item, int CategoryId)
@@ -99,6 +85,7 @@ namespace ToDoList.Controllers
             ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
             return View(thisItem);
         }
+
         [HttpPost]
         public ActionResult Edit(Item item, int CategoryId)
         {
@@ -125,7 +112,6 @@ namespace ToDoList.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-
 
         [HttpPost]
         public ActionResult DeleteCategory(int joinId)

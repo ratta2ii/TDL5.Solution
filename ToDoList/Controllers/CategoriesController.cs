@@ -15,7 +15,6 @@ namespace ToDoList.Controllers
     {
         private readonly ToDoListContext _db;
         private readonly UserManager<ApplicationUser> _userManager; // authentication
-
         public CategoriesController(UserManager<ApplicationUser> userManager, ToDoListContext db)
         {
             _userManager = userManager;
@@ -29,12 +28,6 @@ namespace ToDoList.Controllers
             var userCategories = _db.Categories.Where(entry => entry.User.Id == currentUser.Id);
             return View(userCategories);
         }
-
-        // public ActionResult Index()
-        // {
-        //     List<Category> model = _db.Categories.ToList();
-        //     return View(model);
-        // }
 
         public ActionResult Create()
         {
@@ -56,15 +49,6 @@ namespace ToDoList.Controllers
             return RedirectToAction("Index");
         }
 
-        // [HttpPost]
-        // public ActionResult Create(Category category)
-        // {
-        //     _db.Categories.Add(category);
-        //     _db.SaveChanges();
-        //     return RedirectToAction("Index");
-        // }
-
-
         public ActionResult Details(int id)
         {
             var thisCategory = _db.Categories
@@ -73,7 +57,6 @@ namespace ToDoList.Controllers
                 .FirstOrDefault(category => category.CategoryId == id);
             return View(thisCategory);
         }
-
 
         public ActionResult Edit(int id)
         {

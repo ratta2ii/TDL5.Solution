@@ -63,7 +63,6 @@ namespace ToDoList.Controllers
             }
         }
 
-
         [HttpPost]
         public async Task<ActionResult> LogOff()
         {
